@@ -196,12 +196,12 @@ ul { margin: 0; padding: 0; }
 /* ===== Marquee ===== */
 .marquee { overflow: hidden; background: #1a1815; color: #faf7f2; padding: 16px 0; }
 .marquee__track {
-  display: flex; white-space: nowrap;
+  display: flex; width: max-content; white-space: nowrap;
   animation: mq 40s linear infinite;
   font-size: 22px; font-weight: 700;
   font-family: 'Bricolage Grotesque', sans-serif;
 }
-.marquee__group { display: inline-flex; align-items: center; }
+.marquee__group { display: inline-flex; align-items: center; flex: none; }
 .marquee__sep { height: 30px; width: auto; margin: 0 22px; vertical-align: middle; }
 
 /* ===== Work ===== */
