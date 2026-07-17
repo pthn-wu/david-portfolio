@@ -128,8 +128,8 @@ window.CONTENT = {
         dates: "2020 — 2022",
         color: "purple",
         bullets: [
-          "Stood up a new Myanmar e-commerce venture end-to-end",
-          "Built growth strategy, SOPs & hiring frameworks for KMA's US hospitality portfolio",
+          "Assisted in setting up a new e-commerce venture in Myanmar",
+          "Built growth strategy, SOPs & hiring frameworks for KMA's US portfolio",
           "Represented KMA at the **SelectUSA 2021 Investment Summit** on US market entry",
         ],
       },
