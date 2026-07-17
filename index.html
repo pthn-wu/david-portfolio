@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>David — Strategy, AI Prototypes &amp; Writing</title>
+<meta name="description" content="Phyo Thihan Nyein (David) — strategist &amp; tech enthusiast building AI prototypes and growing businesses. Portfolio, writing, and interests.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%231a1815'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-family='sans-serif' font-weight='800' font-size='52' fill='%23faf7f2'%3ED%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- The page is rendered from js/content.js — edit that file to change any text or content. -->
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <a href="#top" class="nav__brand">
+    <span class="monogram monogram--sm"><span class="monogram__inner" data-initial></span></span>
+    <span data-name></span>
+  </a>
+  <div class="nav__links">
+    <a href="#work">Work</a>
+    <a href="#writing">Writing</a>
+    <a href="#now">Now</a>
+    <a href="#say-hi" class="btn btn--dark btn--sm">Say hi</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header id="top" class="hero">
+  <div class="hero__deco" aria-hidden="true" id="hero-deco"></div>
+  <div class="hero__inner">
+    <div class="monogram monogram--lg">
+      <div class="monogram__inner monogram__inner--lg" data-initial></div>
+    </div>
+    <h1 class="hero__title" id="hero-title"></h1>
+    <p class="hero__subtitle" id="hero-subtitle"></p>
+    <div class="hero__cta" id="hero-cta"></div>
+  </div>
+</header>
+
+<!-- ===== MARQUEE STRIP ===== -->
+<div class="marquee">
+  <div class="marquee__track" id="marquee-track"></div>
+</div>
+
+<!-- ===== WORK ===== -->
+<section id="work" class="section">
+  <div class="rv eyebrow-row">
+    <span class="eyebrow eyebrow--red" id="work-eyebrow"></span>
+    <span class="rule"></span>
+  </div>
+  <h2 class="rv section__title" style="max-width:640px" id="work-title"></h2>
+  <div class="work-grid" id="work-grid"></div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section class="section section--experience">
+  <div class="rv eyebrow-row">
+    <span class="eyebrow eyebrow--yellow" id="exp-eyebrow"></span>
+    <span class="rule"></span>
+  </div>
+  <h2 class="rv section__title" id="exp-title"></h2>
+  <div class="timeline" id="timeline"></div>
+</section>
+
+<!-- ===== WRITING / SUBSTACK ===== -->
+<section id="writing" class="section section--writing">
+  <div class="section__inner">
+    <div class="rv eyebrow-row">
+      <span class="eyebrow eyebrow--green" id="writing-eyebrow"></span>
+      <span class="rule rule--dark"></span>
+    </div>
+    <div class="rv writing__head">
+      <h2 class="section__title" style="margin:0" id="writing-title"></h2>
+      <a class="tlink writing__link" id="writing-link" href="#" target="_blank" rel="noopener"></a>
+    </div>
+    <p class="rv writing__quote" id="writing-quote"></p>
+    <div class="writing-grid" id="writing-grid"></div>
+  </div>
+</section>
+
+<!-- ===== NOW / INTERESTS ===== -->
+<section id="now" class="section">
+  <div class="rv eyebrow-row">
+    <span class="eyebrow eyebrow--purple" id="now-eyebrow"></span>
+    <span class="rule"></span>
+  </div>
+  <h2 class="rv section__title" id="now-title"></h2>
+  <div class="now-grid" id="now-grid"></div>
+</section>
+
+<!-- ===== SAY HI / FOOTER ===== -->
+<footer id="say-hi" class="footer">
+  <div class="blob footer__blob1"></div>
+  <div class="blob footer__blob2"></div>
+  <div class="rv footer__inner">
+    <h2 class="footer__title" id="footer-title"></h2>
+    <p class="footer__subtitle" id="footer-subtitle"></p>
+    <div class="footer__cta" id="footer-cta"></div>
+    <div class="footer__copy" id="footer-copy"></div>
+  </div>
+</footer>
+
+<!-- ===== DEMO MODAL ===== -->
+<div id="demo-modal" class="modal" hidden>
+  <div class="modal__bar">
+    <span class="modal__title" id="demo-title"></span>
+    <div class="modal__actions">
+      <a id="demo-open-tab" href="#" target="_blank" rel="noopener" class="modal__link">Open in tab ↗</a>
+      <button id="demo-close" type="button" class="modal__close">Close ✕</button>
+    </div>
+  </div>
+  <iframe id="demo-frame" class="modal__frame" title="Project demo" src="about:blank"></iframe>
+</div>
+
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
