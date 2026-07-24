@@ -214,4 +214,20 @@ window.CONTENT = {
     copyrightNote: "Made with curiosity",
   },
 
+  /* ----- "Say hi" popup + Calendly booking -----
+     The nav "Say hi" button opens a playful popup (confetti + a waving
+     greeting that cycles through the list below), which then opens your
+     Calendly in a modal.
+     - greetings: the words that rotate at the top of the popup
+     - calendlyUrl: your Calendly link (change this if your handle changes)
+     Set sayHi to null to make "Say hi" simply scroll to the footer instead. */
+  sayHi: {
+    greetings: ["Hey there!", "Mingalaba!", "Hello hello!", "COYS! ⚽", "Oh hi!"],
+    text: "You found the fun button. Fancy a chat about products, AI, food — or why Spurs will definitely win the league this year?",
+    bookButtonText: "Let's set up a time 📅",
+    dismissText: "Maybe later",
+    calendlyHeading: "Pick a time that works 📅",
+    calendlyUrl: "https://calendly.com/phyothihannyein",
+  },
+
 };

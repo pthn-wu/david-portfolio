@@ -46,6 +46,20 @@ ul { margin: 0; padding: 0; }
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: none; }
 }
+@keyframes wave {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(18deg); }
+  75% { transform: rotate(-10deg); }
+}
+@keyframes popIn {
+  0% { transform: scale(.5) rotate(-6deg); opacity: 0; }
+  60% { transform: scale(1.06) rotate(2deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); }
+}
+@keyframes confettiFall {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: .9; }
+}
 
 /* Scroll reveal: native CSS scroll-driven animation where supported */
 .rv {
@@ -403,6 +417,57 @@ ul { margin: 0; padding: 0; }
 .modal__close { font-size: 15px; font-weight: 700; color: #1a1815; background: #fff; border: none; padding: 10px 20px; border-radius: 999px; cursor: pointer; }
 .modal__frame { flex: 1; width: 100%; border: none; border-radius: 16px; background: #2E2840; box-shadow: 0 24px 70px rgba(0,0,0,.4); }
 
+/* ===== "Say hi" greeting popup ===== */
+.hi-overlay {
+  position: fixed; inset: 0; z-index: 120;
+  background: rgba(20,16,30,.55); backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.hi-overlay[hidden] { display: none; }
+.hi-confetti { position: absolute; inset: 0; pointer-events: none; }
+.hi-confetti__bit { position: absolute; top: 0; animation-name: confettiFall; animation-timing-function: linear; animation-iteration-count: infinite; }
+.hi-card {
+  position: relative; background: #faf7f2; border-radius: 28px;
+  padding: 48px 52px; max-width: 420px; text-align: center;
+  box-shadow: 0 30px 90px rgba(0,0,0,.35);
+  animation: popIn .45s cubic-bezier(.34,1.56,.64,1) both;
+}
+.hi-card__badge {
+  width: 88px; height: 88px; margin: 0 auto 20px; border-radius: 50%;
+  background: conic-gradient(from 0deg, oklch(0.72 0.15 25), oklch(0.72 0.15 80), oklch(0.72 0.15 150), oklch(0.72 0.15 260), oklch(0.72 0.15 25));
+  display: flex; align-items: center; justify-content: center;
+  animation: pop 3s ease-in-out infinite;
+}
+.hi-card__badge-inner { width: 74px; height: 74px; border-radius: 50%; background: #faf7f2; display: flex; align-items: center; justify-content: center; font-size: 38px; }
+.hi-card__wave { display: inline-block; animation: wave 1.2s ease-in-out infinite; transform-origin: 70% 70%; }
+.hi-card__greeting { font: 800 40px/1.05 'Bricolage Grotesque', sans-serif; margin: 0 0 6px; letter-spacing: -.02em; }
+.hi-card__text { font-size: 16px; line-height: 1.55; color: rgba(0,0,0,.6); margin: 8px 0 26px; }
+.hi-card__actions { display: flex; flex-direction: column; gap: 10px; }
+.hi-card__book { padding: 14px 28px; font-size: 16px; }
+.hi-card__dismiss { background: none; border: none; font: 600 14px 'Space Grotesk', sans-serif; color: rgba(0,0,0,.45); cursor: pointer; padding: 8px; transition: color .2s; }
+.hi-card__dismiss:hover { color: #1a1815; }
+@media (prefers-reduced-motion: reduce) {
+  .hi-card, .hi-card__badge, .hi-card__wave { animation: none; }
+}
+
+/* ===== Calendly modal ===== */
+.cal-overlay {
+  position: fixed; inset: 0; z-index: 130;
+  background: rgba(20,16,30,.6); backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center; padding: 30px;
+}
+.cal-overlay[hidden] { display: none; }
+.cal-card {
+  position: relative; width: min(1000px, 100%); height: min(760px, 100%);
+  background: #faf7f2; border-radius: 24px; overflow: hidden;
+  box-shadow: 0 30px 90px rgba(0,0,0,.4);
+  animation: popIn .4s cubic-bezier(.34,1.56,.64,1) both;
+  display: flex; flex-direction: column;
+}
+.cal-card__bar { display: flex; align-items: center; justify-content: space-between; padding: 16px 22px; border-bottom: 1px solid rgba(0,0,0,.08); }
+.cal-card__title { font: 700 18px 'Bricolage Grotesque', sans-serif; }
+.cal-card__frame { flex: 1; width: 100%; border: none; background: #fff; }
+
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
   .now-grid { grid-template-columns: 1fr 1fr; }
@@ -426,6 +491,10 @@ ul { margin: 0; padding: 0; }
   .cv-card { flex-wrap: wrap; gap: 16px; padding: 22px; }
   .cv-card__text { flex: 1 1 auto; }
   .cv-card__btn { flex: 1 1 100%; text-align: center; }
+  .hi-overlay { padding: 20px; }
+  .hi-card { padding: 38px 30px; }
+  .hi-card__greeting { font-size: 34px; }
+  .cal-overlay { padding: 14px; }
   .now-grid { grid-template-columns: 1fr; }
   .footer__title { font-size: 36px; }
   .chip { display: none; }

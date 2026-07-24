@@ -201,7 +201,96 @@
   closeBtn.addEventListener('click', closeDemo);
   openTabLink.addEventListener('click', (e) => e.stopPropagation());
 
+  /* ----- "Say hi" greeting popup + Calendly modal ----- */
+  const hi = C.sayHi;
+  const navSayHi = document.getElementById('nav-say-hi');
+  const hiModal = document.getElementById('hi-modal');
+  const calModal = document.getElementById('cal-modal');
+
+  if (hi && navSayHi) {
+    const hiCard = hiModal.querySelector('.hi-card');
+    const calCard = calModal.querySelector('.cal-card');
+    const greetingEl = document.getElementById('hi-greeting');
+    const confettiEl = document.getElementById('hi-confetti');
+    const calFrame = document.getElementById('cal-frame');
+
+    // Static text from config
+    document.getElementById('hi-text').textContent = hi.text;
+    document.getElementById('hi-book').textContent = hi.bookButtonText;
+    document.getElementById('hi-dismiss').textContent = hi.dismissText;
+    document.getElementById('cal-heading').textContent = hi.calendlyHeading;
+
+    const confettiColors = [
+      'oklch(0.72 0.15 25)', 'oklch(0.72 0.15 80)', 'oklch(0.72 0.15 150)',
+      'oklch(0.72 0.15 260)', '#1a1815',
+    ];
+    const rand = (min, max) => min + Math.random() * (max - min);
+    const buildConfetti = () => {
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) { confettiEl.innerHTML = ''; return; }
+      let html = '';
+      for (let i = 0; i < 28; i++) {
+        const size = Math.round(rand(8, 16));
+        html += `<span class="hi-confetti__bit" style="left:${rand(0, 100).toFixed(1)}%;` +
+          `width:${size}px;height:${size}px;border-radius:${Math.random() > 0.5 ? '50%' : '3px'};` +
+          `background:${confettiColors[i % confettiColors.length]};` +
+          `animation-duration:${rand(2.6, 5).toFixed(2)}s;animation-delay:${rand(0, 2.5).toFixed(2)}s"></span>`;
+      }
+      confettiEl.innerHTML = html;
+    };
+
+    let greetIdx = 0;
+    let greetTimer = null;
+    const showGreeting = () => { greetingEl.textContent = hi.greetings[greetIdx % hi.greetings.length]; };
+
+    const openHi = (e) => {
+      if (e) e.preventDefault();
+      greetIdx = 0;
+      showGreeting();
+      buildConfetti();
+      hiModal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      clearInterval(greetTimer);
+      greetTimer = setInterval(() => { greetIdx++; showGreeting(); }, 1600);
+    };
+    const closeHi = () => {
+      clearInterval(greetTimer);
+      hiModal.hidden = true;
+      if (calModal.hidden) document.body.style.overflow = '';
+    };
+    const openCal = (e) => {
+      if (e) e.preventDefault();
+      clearInterval(greetTimer);
+      hiModal.hidden = true;
+      calFrame.src = hi.calendlyUrl;
+      calModal.hidden = false;
+      document.body.style.overflow = 'hidden';
+    };
+    const closeCal = () => {
+      calModal.hidden = true;
+      calFrame.src = 'about:blank';
+      document.body.style.overflow = '';
+    };
+
+    navSayHi.addEventListener('click', openHi);
+    document.getElementById('hi-book').addEventListener('click', openCal);
+    document.getElementById('hi-dismiss').addEventListener('click', closeHi);
+    document.getElementById('cal-close').addEventListener('click', closeCal);
+    // Click outside the card closes; clicks inside don't
+    hiModal.addEventListener('click', closeHi);
+    hiCard.addEventListener('click', (e) => e.stopPropagation());
+    calModal.addEventListener('click', closeCal);
+    calCard.addEventListener('click', (e) => e.stopPropagation());
+
+    // expose for the shared Escape handler
+    hiModal._close = closeHi;
+    calModal._close = closeCal;
+  }
+
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !modal.hidden) closeDemo();
+    if (e.key !== 'Escape') return;
+    if (!modal.hidden) closeDemo();
+    else if (calModal && !calModal.hidden) calModal._close();
+    else if (hiModal && !hiModal.hidden) hiModal._close();
   });
 })();

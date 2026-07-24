@@ -25,7 +25,7 @@
     <a href="#work">Work</a>
     <a href="#writing">Writing</a>
     <a href="#now">Now</a>
-    <a href="#say-hi" class="btn btn--dark btn--sm">Say hi</a>
+    <a href="#say-hi" id="nav-say-hi" class="btn btn--dark btn--sm">Say hi</a>
   </div>
 </nav>
 
@@ -115,6 +115,33 @@
     </div>
   </div>
   <iframe id="demo-frame" class="modal__frame" title="Project demo" src="about:blank"></iframe>
+</div>
+
+<!-- ===== SAY-HI GREETING POPUP ===== -->
+<div id="hi-modal" class="hi-overlay" hidden>
+  <div class="hi-confetti" id="hi-confetti" aria-hidden="true"></div>
+  <div class="hi-card">
+    <div class="hi-card__badge">
+      <div class="hi-card__badge-inner"><span class="hi-card__wave">👋</span></div>
+    </div>
+    <h3 class="hi-card__greeting" id="hi-greeting"></h3>
+    <p class="hi-card__text" id="hi-text"></p>
+    <div class="hi-card__actions">
+      <a id="hi-book" class="btn btn--dark hi-card__book" href="#"></a>
+      <button id="hi-dismiss" type="button" class="hi-card__dismiss"></button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CALENDLY MODAL ===== -->
+<div id="cal-modal" class="cal-overlay" hidden>
+  <div class="cal-card">
+    <div class="cal-card__bar">
+      <span class="cal-card__title" id="cal-heading"></span>
+      <button id="cal-close" type="button" class="modal__close">Close ✕</button>
+    </div>
+    <iframe id="cal-frame" class="cal-card__frame" title="Calendly — book a time" src="about:blank"></iframe>
+  </div>
 </div>
 
 <script src="js/content.js"></script>
