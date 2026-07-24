@@ -89,6 +89,20 @@
       </div>`;
   }).join('');
 
+  /* ----- Résumé download card ----- */
+  const resume = C.experienceSection.resumeCard;
+  if (resume) {
+    document.getElementById('timeline').insertAdjacentHTML('beforeend', `
+      <a class="rv cv-card" href="${esc(resume.file)}" download>
+        <span class="cv-card__badge"><span class="cv-card__badge-inner">${esc(resume.badge)}</span></span>
+        <span class="cv-card__text">
+          <span class="cv-card__title">${esc(resume.title)}</span>
+          <span class="cv-card__desc">${esc(resume.description)}</span>
+        </span>
+        <span class="cv-card__btn">${esc(resume.buttonText)}</span>
+      </a>`);
+  }
+
   /* ----- Writing ----- */
   const W = C.writingSection;
   setText('writing-eyebrow', W.eyebrow);

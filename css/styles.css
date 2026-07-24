@@ -265,6 +265,35 @@ ul { margin: 0; padding: 0; }
 .timeline__arrow--purple { color: oklch(0.5 0.16 260); }
 .timeline__date { font-size: 14px; color: rgba(0,0,0,.4); font-weight: 600; white-space: nowrap; }
 
+/* ===== Résumé download card ===== */
+.cv-card {
+  display: flex; align-items: center; gap: 20px; margin-top: 34px;
+  background: linear-gradient(120deg, oklch(0.88 0.08 80), oklch(0.85 0.1 60));
+  color: #3a2f10;
+  border: 1.5px solid oklch(0.75 0.12 80);
+  border-radius: 18px; padding: 24px 30px;
+  transition: transform .25s, box-shadow .25s;
+}
+.cv-card:hover { transform: translateY(-4px); box-shadow: 0 16px 44px rgba(120,90,20,.22); }
+.cv-card__badge {
+  width: 52px; height: 52px; flex: none; border-radius: 14px;
+  background: conic-gradient(oklch(0.72 0.15 25), oklch(0.72 0.15 80), oklch(0.72 0.15 150), oklch(0.72 0.15 260), oklch(0.72 0.15 25));
+  display: flex; align-items: center; justify-content: center;
+}
+.cv-card__badge-inner {
+  width: 44px; height: 44px; border-radius: 11px; background: #faf7f2;
+  display: flex; align-items: center; justify-content: center;
+  font: 800 13px 'Bricolage Grotesque', sans-serif; color: #1a1815;
+}
+.cv-card__text { flex: 1; }
+.cv-card__title { display: block; font: 700 20px 'Bricolage Grotesque', sans-serif; }
+.cv-card__desc { display: block; font-size: 14px; color: rgba(58,47,16,.7); margin-top: 3px; }
+.cv-card__btn {
+  flex: none; background: #1a1815; color: #faf7f2;
+  padding: 12px 22px; border-radius: 999px; font-weight: 700; font-size: 15px;
+  white-space: nowrap;
+}
+
 /* ===== Writing ===== */
 .section--writing {
   background: #1a1815; color: #faf7f2;
@@ -394,6 +423,9 @@ ul { margin: 0; padding: 0; }
   .work-card { flex-direction: column; padding: 22px; }
   .work-card__preview { width: 100%; }
   .timeline__item { flex-direction: column; gap: 10px; }
+  .cv-card { flex-wrap: wrap; gap: 16px; padding: 22px; }
+  .cv-card__text { flex: 1 1 auto; }
+  .cv-card__btn { flex: 1 1 100%; text-align: center; }
   .now-grid { grid-template-columns: 1fr; }
   .footer__title { font-size: 36px; }
   .chip { display: none; }

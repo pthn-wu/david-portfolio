@@ -134,6 +134,16 @@ window.CONTENT = {
         ],
       },
     ],
+    // The gold "download my résumé" card under the roles.
+    // To swap the PDF: put the new file in assets/ and update `file`.
+    // Set resumeCard to null to hide the card entirely.
+    resumeCard: {
+      badge: "CV",
+      title: "Want the long version?",
+      description: "Grab my résumé — one page, zero fluff, mildly impressive.",
+      buttonText: "Download PDF ↓",
+      file: "assets/Phyo_Nyein_Resume.pdf",
+    },
   },
 
   /* ----- Writing / Substack (the dark section) ----- */
