@@ -111,7 +111,7 @@ window.CONTENT = {
     title: "The short version",
     roles: [
       {
-        role: "Senior Manager, Strategy & Business Development",
+        role: "Head of Strategy & Business Development",
         company: "Capital Diamond Star Group (CDSG) — Retail Cluster",
         dates: "2022 — Now",
         color: "red",
