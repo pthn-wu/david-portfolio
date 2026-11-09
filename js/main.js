@@ -75,12 +75,21 @@
   document.getElementById('timeline').innerHTML = roles.map((r, i) => {
     const color = r.color === 'purple' ? 'purple' : 'red';
     const borders = i === roles.length - 1 ? 'timeline__item--bottom' : 'timeline__item--top';
+    const progression = (r.progression && r.progression.length)
+      ? `<div class="progression">${r.progression.map((s, j) =>
+          `${j ? '<span class="progression__arrow">→</span>' : ''}` +
+          `<span class="progression__step${s.current ? ' progression__step--current progression__step--' + color : ''}">` +
+            `<span class="progression__year">${esc(s.year)}</span>` +
+            `<span class="progression__title">${esc(s.title)}</span>` +
+          `</span>`).join('')}</div>`
+      : '';
     return `
       <div class="rv timeline__item ${borders}">
         <div class="timeline__dot timeline__dot--${color}"></div>
         <div class="timeline__body">
           <h3 class="timeline__role">${esc(r.role)}</h3>
           <div class="timeline__org timeline__org--${color}">${esc(r.company)}</div>
+          ${progression}
           <ul class="timeline__list">
             ${r.bullets.map((b) => `<li><span class="timeline__arrow timeline__arrow--${color}">→</span><span>${rich(b)}</span></li>`).join('')}
           </ul>

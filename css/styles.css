@@ -271,6 +271,17 @@ ul { margin: 0; padding: 0; }
 .timeline__org { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
 .timeline__org--red { color: oklch(0.55 0.16 25); }
 .timeline__org--purple { color: oklch(0.5 0.16 260); }
+/* Title progression stepper */
+.progression { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; margin: 12px 0 16px; }
+.progression__step { display: inline-flex; align-items: baseline; gap: 6px; }
+.progression__year { font-size: 12px; font-weight: 700; letter-spacing: .02em; color: rgba(0,0,0,.38); font-variant-numeric: tabular-nums; }
+.progression__title { font-size: 13.5px; font-weight: 500; color: rgba(0,0,0,.55); }
+.progression__arrow { font-size: 13px; color: rgba(0,0,0,.25); }
+.progression__step--current .progression__title { font-weight: 700; }
+.progression__step--current.progression__step--red .progression__year,
+.progression__step--current.progression__step--red .progression__title { color: oklch(0.55 0.16 25); }
+.progression__step--current.progression__step--purple .progression__year,
+.progression__step--current.progression__step--purple .progression__title { color: oklch(0.5 0.16 260); }
 .timeline__list { list-style: none; display: flex; flex-direction: column; gap: 9px; max-width: 660px; }
 .timeline__list li { display: flex; gap: 11px; font-size: 15px; line-height: 1.5; color: rgba(0,0,0,.68); }
 .timeline__list strong { color: #1a1815; }

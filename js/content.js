@@ -115,6 +115,14 @@ window.CONTENT = {
         company: "Capital Diamond Star Group (CDSG) — Retail Cluster",
         dates: "2022 — Now",
         color: "red",
+        // Optional title progression within this role — shown as a small
+        // stepper under the company. Last entry is marked current.
+        // Remove this whole block to hide the progression line.
+        progression: [
+          { title: "Manager", year: "2022" },
+          { title: "Senior Manager", year: "2024" },
+          { title: "Head", year: "2026", current: true },
+        ],
         bullets: [
           "Built the 3–5-year growth strategy for the convenience, supermarket & hypermarket cluster",
           "Led go-to-market for new retail formats — **140% footprint growth**",
